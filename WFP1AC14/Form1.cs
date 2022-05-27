@@ -169,7 +169,7 @@ namespace WFP1AC14
         {
             string archivo = @"C:\Users\alumno\Downloads\salida.csv";
             ClsImportExport im = new();
-            MessageBox.Show(im.exportar("select * from db_alumnos where seccion='A'", archivo));
+            MessageBox.Show(im.exportar("select * from db_alumnos", archivo));
         }
 
         private void button1_Click(object sender, EventArgs e)

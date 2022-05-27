@@ -40,7 +40,7 @@ namespace p1ACrud13.Clases.Servicio
 
             foreach (DataRow dr in respuesta.Rows)
             {
-                textoSalida += $"{dr["idAlumno"]};{dr["carnet"]};{dr["nombre"]};{dr["seccion"]};{dr["parcial1"]};{dr["parcial2"]};{dr["parcial3"]}\n";
+                textoSalida += $"{dr["idAlumno"]};{dr["carnet"]};{dr["nombre"]};{dr["correo"]};{dr["clase"]};{dr["seccion"]};{dr["parcial1"]};{dr["parcial2"]};{dr["parcial3"]}\n";
             }
 
             if (!string.IsNullOrEmpty(textoSalida))
