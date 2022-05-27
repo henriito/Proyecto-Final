@@ -79,33 +79,82 @@ namespace WFP1AC14
         private void buttonCrearAlumno_Click(object sender, EventArgs e)
         {
             oAlumnos = DatosFormulario();
-            int respuesta = srvAlumno.CrearAlumno(oAlumnos);
-
-            if (respuesta > 0)
+            int p1, p2, p3;
+            p1 = Convert.ToInt32(textBoxParcial1.Text);
+            p2 = Convert.ToInt32(textBoxParcial2.Text);
+            p3 = Convert.ToInt32(textBoxParcial3.Text);
+            if (20 < p1)
             {
-                MessageBox.Show("Se creo con exito el Alumno");
-                LimpiarDatos();
-                DesplegarGrid();
-            } else
-            {
-                MessageBox.Show("Perdon hay un problema con la Grabacion");
+                MessageBox.Show("Lo sentimos, las notas del Parcial 1 no pueden ser mayores a 20.");
             }
-        }
-
-        private void buttonActualizar_Click(object sender, EventArgs e)
-        {
-            oAlumnos = DatosFormulario();
-            int respuesta = srvAlumno.actualizarAlumno(oAlumnos);
-
-            if (respuesta > 0)
+            else if (20 < p2)
             {
-                MessageBox.Show("Se actualizo el Alumno");
-                LimpiarDatos();
-                DesplegarGrid();
+                MessageBox.Show("Lo sentimos, las notas del Parcial 2 no pueden ser mayores a 20.");
+            }
+            else if (35 < p3)
+            {
+                MessageBox.Show("Lo sentimos, las notas del Parcial 3 no pueden ser mayores a 35.");
             }
             else
             {
-                MessageBox.Show("Perdon hay un problema con la Grabacion");
+            if (textBoxNombre.Text == "")
+            {
+                MessageBox.Show("Lo siento, 'nombre' no puede quedar vacio");
+            }
+            else
+            {
+            int respuesta = srvAlumno.CrearAlumno(oAlumnos);
+
+                if (respuesta > 0)
+                {
+                    MessageBox.Show("Se creo con exito el Alumno");
+                    LimpiarDatos();
+                    DesplegarGrid();
+                } 
+                else
+                {
+                    MessageBox.Show("Perdon hay un problema con la Grabacion");
+                }
+            }
+        }
+    }
+        private void buttonActualizar_Click(object sender, EventArgs e)
+        {
+            oAlumnos = DatosFormulario();
+            int p1, p2, p3;
+            p1 = Convert.ToInt32(textBoxParcial1.Text);
+            p2 = Convert.ToInt32(textBoxParcial2.Text);
+            p3 = Convert.ToInt32(textBoxParcial3.Text);
+            if (20 < p1)
+            {
+                MessageBox.Show("Lo sentimos, las notas del Parcial 1 no pueden ser mayores a 20.");
+            }
+            else if (20 < p2)
+            {
+                MessageBox.Show("Lo sentimos, las notas del Parcial 2 no pueden ser mayores a 20.");
+            }
+            else if (35 < p3)
+            {
+                MessageBox.Show("Lo sentimos, las notas del Parcial 3 no pueden ser mayores a 35.");
+            }
+            if (textBoxNombre.Text == "")
+            {
+                MessageBox.Show("Lo siento, 'nombre' no puede quedar vacio");
+            }
+            else
+            {
+                int respuesta = srvAlumno.actualizarAlumno(oAlumnos);
+
+                if (respuesta > 0)
+                {
+                    MessageBox.Show("Se actualizo el Alumno");
+                    LimpiarDatos();
+                    DesplegarGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Perdon hay un problema con la Grabacion");
+                }
             }
         }
 
